@@ -46,7 +46,7 @@ var result = yield* api.updateRemark('open_id', 'remarked');
 
 ### 多进程
 当多进程时，token需要全局维护，以下为保存token的接口。
-```
+```js
 var api = new API('corpid', 'corpsecret', function* () {
   // 传入一个获取全局token的方法
   var txt = yield fs.readFile('access_token.txt', 'utf8');
@@ -112,13 +112,19 @@ QQ群：157964097，使用疑问，开发，贡献代码请加群。
 感谢以下贡献者：
 
 ```
- project  : co-wechat-enterprise-api
- repo age : 3 months
- active   : 3 days
- commits  : 4
- files    : 28
+
+ project  : co-wechat-api
+ repo age : 1 year, 1 month
+ active   : 14 days
+ commits  : 44
+ files    : 70
  authors  :
-     4  马剑                  100.0%
+    32  Jackson Tian  72.7%
+     6  magicxie      13.6%
+     2  TimZhang      4.5%
+     2  ken           4.5%
+     2  马剑          4.5%
+
 
 ```
 
