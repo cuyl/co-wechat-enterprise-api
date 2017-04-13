@@ -3,10 +3,13 @@ Wechat Enterprise API(ES6版)
 微信企业号API。
 
 ## 模块状态
-- [![NPM version](https://badge.fury.io/js/co-wechat-enterprise-api.png)](http://badge.fury.io/js/co-wechat-enterprise-api)
-- [![Build Status](https://travis-ci.org/node-webot/co-wechat-enterprise-api.png?branch=master)](https://travis-ci.org/node-webot/co-wechat-enterprise-api)
-- [![Dependencies Status](https://david-dm.org/node-webot/co-wechat-enterprise-api.png)](https://david-dm.org/node-webot/co-wechat-enterprise-api)
-- [![Coverage Status](https://coveralls.io/repos/node-webot/co-wechat-enterprise-api/badge.png)](https://coveralls.io/r/node-webot/co-wechat-enterprise-api)
+[![NPM version](https://badge.fury.io/js/co-wechat-enterprise-api.png)](http://badge.fury.io/js/co-wechat-enterprise-api)
+[![Build Status](https://travis-ci.org/node-webot/co-wechat-enterprise-api.png?branch=master)](https://travis-ci.org/node-webot/co-wechat-enterprise-api)
+[![David deps][david-image]][david-url]
+[![Coverage Status](https://coveralls.io/repos/node-webot/co-wechat-enterprise-api/badge.png)](https://coveralls.io/r/node-webot/co-wechat-enterprise-api)
+
+[david-image]: https://img.shields.io/david/cuyl/co-wechat-enterprise-api.svg?style=flat-square
+[david-url]: https://david-dm.org/curl/co-wechat-enterprise-api
 
 ## 功能列表
 - 主动消息
@@ -38,18 +41,18 @@ $ npm install co-wechat-enterprise-api
 ## Usage
 
 ```js
-var API = require('co-wechat-enterprise-api');
+const API = require('co-wechat-enterprise-api');
 
-var api = new API(corpid, corpsecret);
-var result = yield* api.updateRemark('open_id', 'remarked');
+const api = new API(corpid, corpsecret);
+const result = yield api.updateRemark('open_id', 'remarked');
 ```
 
 ### 多进程
 当多进程时，token需要全局维护，以下为保存token的接口。
 ```js
-var api = new API('corpid', 'corpsecret', function* () {
+const api = new API('corpid', 'corpsecret', function* () {
   // 传入一个获取全局token的方法
-  var txt = yield fs.readFile('access_token.txt', 'utf8');
+  const txt = yield fs.readFile('access_token.txt', 'utf8');
   return JSON.parse(txt);
 }, function* (token) {
   // 请将token存储到全局，跨进程、跨机器级别的全局，比如写到数据库、redis等
