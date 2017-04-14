@@ -1,5 +1,7 @@
 // 微信企业号主动调用接口API
-var API = require('./lib/api_common');
+const API = require('./lib/api_common');
+const co = require('co');
+
 // 部门管理
 API.mixin(require('./lib/api_department'));
 // 媒体管理（上传、下载）
@@ -35,4 +37,5 @@ module.exports.API = API;
 var SuiteAPI = require('./lib/api_suite_common');
 // 第三方应用接口
 SuiteAPI.mixin(require('./lib/api_suite_3ps'));
+
 module.exports.SuiteAPI = SuiteAPI;
