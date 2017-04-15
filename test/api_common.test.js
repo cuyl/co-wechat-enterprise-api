@@ -1,32 +1,32 @@
-var API = require('../');
-var expect = require('expect.js');
-var config = require('./config');
+const API = require('../');
+const expect = require('expect.js');
+const config = require('./config');
 
 describe('api_common', function () {
 
   describe('mixin', function () {
     it('should ok', function () {
-      API.mixin({sayHi: function () {}});
+      API.mixin({sayHi() {}});
       expect(API.prototype).to.have.property('sayHi');
     });
 
     it('should not ok when override method', function () {
-      var obj = {sayHi: function () {}};
+      const obj = {sayHi() {}};
       expect(API.mixin).withArgs(obj).to.throwException(/Don't allow override existed prototype method\./);
     });
   });
 
   describe('getAccessToken', function () {
-    it('should ok', function* () {
-      var api = new API(config.corpid, config.corpsecret);
-      var token = yield api.getAccessToken();
-      expect(token).to.only.have.keys('accessToken');
+    it('should ok', async function() {
+      const api = new API(config.corpid, config.corpsecret);
+      const token = await api.getAccessToken();
+      expect(token).to.only.have.keys(['accessToken', 'expireTime']);
     });
 
-    it('should not ok', function* () {
-      var api = new API(config.corpid, 'corpsecret');
+    it('should not ok', async function() {
+      const api = new API(config.corpid, 'corpsecret');
       try {
-        yield api.getAccessToken();
+        await api.getAccessToken();
       } catch (err) {
         expect(err).to.have.property('name', 'WeChatAPIError');
         expect(err).to.have.property('message', 'invalid credential');

@@ -1,3 +1,5 @@
+'use strict';
+
 // 微信企业号主动调用接口API
 const API = require('./lib/api_common');
 

@@ -20,7 +20,6 @@
     "wechat"
   ],
   "dependencies": {
-    "co": "^4.6.0",
     "co-fs": "^1.2.0",
     "formstream": ">=0.0.8",
     "httpx": "^2.1.1"

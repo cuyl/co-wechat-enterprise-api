@@ -44,20 +44,20 @@ $ npm install co-wechat-enterprise-api
 const API = require('co-wechat-enterprise-api');
 
 const api = new API(corpid, corpsecret);
-const result = yield api.updateRemark('open_id', 'remarked');
+const result = await api.updateRemark('open_id', 'remarked');
 ```
 
 ### 多进程
 当多进程时，token需要全局维护，以下为保存token的接口。
 ```js
-const api = new API('corpid', 'corpsecret', function* () {
+const api = new API('corpid', 'corpsecret', async function() {
   // 传入一个获取全局token的方法
-  const txt = yield fs.readFile('access_token.txt', 'utf8');
+  const txt = await fs.readFile('access_token.txt', 'utf8');
   return JSON.parse(txt);
-}, function* (token) {
+}, async function(token) {
   // 请将token存储到全局，跨进程、跨机器级别的全局，比如写到数据库、redis等
   // 这样才能在cluster模式及多机情况下使用，以下为写入到文件的示例
-  yield fs.writeFile('access_token.txt', JSON.stringify(token));
+  await fs.writeFile('access_token.txt', JSON.stringify(token));
 });
 ```
 
@@ -90,9 +90,9 @@ const api = new API('corpid', 'corpsecret', function* () {
 三、将agent配置给httpx。
 
 ```js
-var tunnel = require('tunnel');
+const tunnel = require('tunnel');
 
-var agent = tunnel.httpsOverHttp({
+const agent = tunnel.httpsOverHttp({
   proxy: {
     host: 'proxy_host_ip', // 代理服务器的IP
     port: 3128 // 代理服务器的端口
