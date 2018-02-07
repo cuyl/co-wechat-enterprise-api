@@ -3,7 +3,7 @@ Wechat Enterprise API(ES6版)
 微信企业号API。
 
 ## 模块状态
-[![NPM version](https://badge.fury.io/js/co-wechat-enterprise-api.png)](http://badge.fury.io/js/co-wechat-enterprise-api)
+[![npm version](https://badge.fury.io/js/%40cuyl%2Fwechat-enterprise-api.svg)](https://badge.fury.io/js/%40cuyl%2Fwechat-enterprise-api)
 [![Build Status](https://travis-ci.org/node-webot/co-wechat-enterprise-api.png?branch=master)](https://travis-ci.org/node-webot/co-wechat-enterprise-api)
 [![David deps][david-image]][david-url]
 [![Coverage Status](https://coveralls.io/repos/node-webot/co-wechat-enterprise-api/badge.png)](https://coveralls.io/r/node-webot/co-wechat-enterprise-api)
@@ -107,33 +107,3 @@ api.setOpts({
 
 ## License
 The MIT license.
-
-## 交流群
-QQ群：157964097，使用疑问，开发，贡献代码请加群。
-
-## 感谢
-感谢以下贡献者：
-
-```
-
- project  : co-wechat-api
- repo age : 1 year, 1 month
- active   : 14 days
- commits  : 44
- files    : 70
- authors  :
-    32  Jackson Tian  72.7%
-     6  magicxie      13.6%
-     2  TimZhang      4.5%
-     2  ken           4.5%
-     2  马剑          4.5%
-
-
-```
-
-## 捐赠
-如果您觉得Wechat对您有帮助，欢迎请作者一杯咖啡
-
-![捐赠wechat](https://cloud.githubusercontent.com/assets/327019/2941591/2b9e5e58-d9a7-11e3-9e80-c25aba0a48a1.png)
-
-或者[![](http://img.shields.io/gratipay/JacksonTian.svg)](https://www.gittip.com/JacksonTian/)
